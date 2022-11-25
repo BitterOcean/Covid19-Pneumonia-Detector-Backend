@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
-import django_heroku
+import dj_database_url
+# import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -89,6 +90,18 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+DATABASES = {
+    'default': dj_database_url.config(        
+        default='postgres://maryam:NLLdkVZ4CImQDbLCSaUW3lHblWk2fzKP@dpg-ce0g3682i3mkucd1onpg-a/covid_pneumonia',        
+        conn_max_age=600
+    )
+}
+
+
 
 
 # Password validation
